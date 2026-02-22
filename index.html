@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SynthQual — AI-Powered Quality Intelligence for Pharma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #0D9D8A;
+    --teal-light: #14C5AE;
+    --teal-dim: #0a7a6b;
+    --navy: #050F1C;
+    --navy-2: #091827;
+    --navy-card: #0C1E2F;
+    --navy-border: #12304A;
+    --white: #F0F8F6;
+    --off-white: #C8E0DA;
+    --muted: #6B9E95;
+    --accent-gold: #E8C672;
+    --accent-coral: #F07070;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--off-white);
+    overflow-x: hidden;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 5%;
+    background: rgba(5, 15, 28, 0.75);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(13,157,138,0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--teal); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--teal-light); }
+
+  .nav-cta {
+    background: var(--teal);
+    color: var(--navy) !important;
+    padding: 0.5rem 1.25rem !important;
+    border-radius: 4px;
+    font-weight: 700 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--teal-light) !important; color: var(--navy) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 5% 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Radial glow */
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(13,157,138,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(13,157,138,0.12);
+    border: 1px solid rgba(13,157,138,0.35);
+    border-radius: 100px;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--teal-light);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    animation: fadeDown 0.8s ease forwards;
+  }
+
+  .hero-badge::before {
+    content: '●';
+    font-size: 0.5rem;
+    color: var(--teal-light);
+    animation: pulse 2s ease infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+    animation: fadeUp 0.9s 0.2s ease both;
+  }
+
+  .hero h1 .accent { color: var(--teal-light); }
+  .hero h1 .accent-gold { color: var(--accent-gold); }
+
+  .hero-sub {
+    font-size: 1.2rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    font-weight: 300;
+    line-height: 1.7;
+    animation: fadeUp 0.9s 0.4s ease both;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeUp 0.9s 0.6s ease both;
+  }
+
+  .btn-primary {
+    background: var(--teal);
+    color: var(--navy);
+    padding: 0.85rem 2.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    transition: background 0.2s, transform 0.15s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--teal-light); transform: translateY(-2px); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--off-white);
+    padding: 0.85rem 2.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: 1px solid rgba(200,224,218,0.25);
+    transition: border-color 0.2s, transform 0.15s;
+    cursor: pointer;
+  }
+  .btn-ghost:hover { border-color: var(--teal); transform: translateY(-2px); }
+
+  /* stats strip */
+  .stats-strip {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(13,157,138,0.15);
+    animation: fadeUp 0.9s 0.8s ease both;
+  }
+
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    display: block;
+  }
+  .stat-num span { color: var(--teal-light); }
+  .stat-label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* ── SECTION COMMONS ── */
+  section { position: relative; padding: 7rem 5%; }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    max-width: 700px;
+    margin-bottom: 1.5rem;
+  }
+  .section-desc {
+    color: var(--muted);
+    max-width: 560px;
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  /* ── ABOUT / OBJECTIVE ── */
+  #about {
+    background: var(--navy-2);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-card {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.3s;
+  }
+  .about-card:hover { border-color: rgba(13,157,138,0.4); }
+
+  .card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  .icon-teal { background: rgba(13,157,138,0.15); }
+  .icon-gold { background: rgba(232,198,114,0.12); }
+  .icon-coral { background: rgba(240,112,112,0.12); }
+
+  .about-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+  }
+  .about-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+  /* ── VISION MISSION SECTION ── */
+  #vision {
+    background: var(--navy);
+    overflow: hidden;
+  }
+
+  .vm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 4rem auto 0;
+  }
+
+  .vm-card {
+    border-radius: 16px;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vm-card-vision {
+    background: linear-gradient(135deg, rgba(13,157,138,0.15) 0%, rgba(13,157,138,0.05) 100%);
+    border: 1px solid rgba(13,157,138,0.3);
+  }
+
+  .vm-card-mission {
+    background: linear-gradient(135deg, rgba(232,198,114,0.1) 0%, rgba(232,198,114,0.03) 100%);
+    border: 1px solid rgba(232,198,114,0.25);
+  }
+
+  .vm-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .vision-label { color: var(--teal-light); }
+  .mission-label { color: var(--accent-gold); }
+
+  .vm-card h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 1.2rem;
+  }
+
+  .vm-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.8; }
+
+  .vm-bg-num {
+    position: absolute;
+    bottom: -1.5rem;
+    right: 1.5rem;
+    font-family: 'Syne', sans-serif;
+    font-size: 8rem;
+    font-weight: 800;
+    opacity: 0.05;
+    user-select: none;
+    line-height: 1;
+  }
+
+  /* ── PRODUCTS ── */
+  #products {
+    background: var(--navy-2);
+  }
+
+  .products-header {
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .product-card {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: 14px;
+    padding: 2rem;
+    transition: border-color 0.3s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--teal), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .product-card:hover { border-color: rgba(13,157,138,0.35); transform: translateY(-4px); }
+  .product-card:hover::before { opacity: 1; }
+
+  .product-card.featured {
+    border-color: rgba(13,157,138,0.4);
+    background: linear-gradient(135deg, rgba(13,157,138,0.08) 0%, var(--navy-card) 70%);
+    grid-column: span 1;
+  }
+  .product-card.featured::before { opacity: 1; }
+
+  .product-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+  .status-live {
+    background: rgba(13,157,138,0.15);
+    color: var(--teal-light);
+    border: 1px solid rgba(13,157,138,0.3);
+  }
+  .status-coming {
+    background: rgba(107,158,149,0.1);
+    color: var(--muted);
+    border: 1px solid rgba(107,158,149,0.2);
+  }
+
+  .product-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    color: var(--white);
+  }
+
+  .product-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
+
+  .product-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag {
+    background: rgba(13,157,138,0.08);
+    border: 1px solid rgba(13,157,138,0.15);
+    border-radius: 4px;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.72rem;
+    color: var(--teal);
+    font-weight: 500;
+  }
+
+  /* ── POLICIES ── */
+  #policies {
+    background: var(--navy);
+  }
+
+  .policies-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 4rem auto 0;
+  }
+
+  .policy-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .policy-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: rgba(13,157,138,0.25);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 3rem;
+    padding-top: 0.2rem;
+  }
+
+  .policy-content h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+  }
+  .policy-content p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+  /* ── BRANDING ── */
+  #branding {
+    background: var(--navy-2);
+  }
+
+  .brand-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 4rem auto 0;
+    align-items: start;
+  }
+
+  .brand-palette {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .swatch {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .swatch-color {
+    height: 70px;
+    border-radius: 8px 8px 0 0;
+  }
+  .swatch-label {
+    padding: 0.5rem;
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  .brand-values {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .brand-val {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+  }
+  .brand-val-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .brand-val-text { font-size: 0.9rem; color: var(--off-white); }
+  .brand-val-sub { font-size: 0.78rem; color: var(--muted); }
+
+  /* TYPOGRAPHY DEMO */
+  .typo-demo {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: 14px;
+    padding: 2.5rem;
+  }
+
+  .typo-demo .typo-name {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--teal);
+    margin-bottom: 0.3rem;
+  }
+  .typo-primary {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .typo-secondary {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── CTA SECTION ── */
+  #contact {
+    background: var(--navy);
+    text-align: center;
+    padding: 8rem 5%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #contact::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 800px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(13,157,138,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .cta-box {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-box h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-box p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy-2);
+    border-top: 1px solid rgba(13,157,138,0.1);
+    padding: 3rem 5% 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--white); }
+  footer .logo span { color: var(--teal); }
+  footer p { font-size: 0.8rem; color: var(--muted); }
+
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a { font-size: 0.8rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--teal-light); }
+
+  /* ── NAMES SECTION ── */
+  #names {
+    background: linear-gradient(180deg, var(--navy-2) 0%, var(--navy) 100%);
+    padding: 7rem 5%;
+  }
+
+  .names-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 4rem auto 0;
+  }
+
+  .name-card {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: 14px;
+    padding: 2rem;
+    transition: border-color 0.3s, transform 0.2s;
+  }
+  .name-card:hover { border-color: rgba(13,157,138,0.3); transform: translateY(-2px); }
+
+  .name-card .name-main {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.3rem;
+  }
+  .name-card .name-main span { color: var(--teal-light); }
+
+  .name-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+    background: rgba(13,157,138,0.1);
+    color: var(--teal);
+    border: 1px solid rgba(13,157,138,0.2);
+    margin-bottom: 0.75rem;
+  }
+
+  .name-card p { font-size: 0.87rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── DIVIDER LINE ── */
+  .divider {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(13,157,138,0.2), transparent);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .about-grid, .vm-grid, .products-grid, .policies-grid, .brand-grid, .names-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .products-grid { grid-template-columns: 1fr 1fr; }
+    nav .nav-links { display: none; }
+    .product-card.featured { grid-column: span 1; }
+  }
+
+  @media (max-width: 600px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .stats-strip { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Synth<span>Qual</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#vision">Vision & Mission</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#policies">Policies</a></li>
+    <li><a href="#branding">Branding</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Generative AI · Pharma & Biopharma Quality Operations</div>
+  <h1>
+    Quality Intelligence,<br>
+    <span class="accent">Synthesized by AI.</span><br>
+    Built for <span class="accent-gold">Life Sciences.</span>
+  </h1>
+  <p class="hero-sub">
+    We build AI-powered operational tools that help pharmaceutical and biopharmaceutical companies — and their service providers — save time, improve accuracy, and meet compliance standards with confidence.
+  </p>
+  <div class="hero-ctas">
+    <a href="#products" class="btn-primary">Explore Our Tools</a>
+    <a href="#contact" class="btn-ghost">Request a Demo</a>
+  </div>
+  <div class="stats-strip">
+    <div class="stat-item">
+      <span class="stat-num">90<span>%</span></span>
+      <span class="stat-label">Reduction in Audit Report Time</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">6<span>+</span></span>
+      <span class="stat-label">AI-Powered Modules</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">GxP</span>
+      <span class="stat-label">Compliance-Oriented Design</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">21<span>+</span></span>
+      <span class="stat-label">CFR Part 11 Aware Architecture</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / OBJECTIVE -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <div class="section-label reveal">Who We Are</div>
+      <h2 class="section-title reveal">Our Objective</h2>
+      <p class="section-desc reveal">
+        We exist to solve one of the most persistent problems in the pharmaceutical industry — operational inefficiency rooted in manual, time-consuming compliance and quality processes.
+      </p>
+      <p class="section-desc reveal" style="margin-top:1rem;">
+        By combining the power of Generative AI with deep domain expertise in pharmaceutical operations, we create intelligent tools that replace hours of manual effort with minutes of accurate, structured output — without sacrificing the quality, compliance, or auditability the industry demands.
+      </p>
+    </div>
+    <div class="about-visual">
+      <div class="about-card reveal">
+        <div class="card-icon icon-teal">🎯</div>
+        <h3>What We Do</h3>
+        <p>We develop AI-powered SaaS tools tailored exclusively for pharmaceutical, biopharmaceutical, and associated service industries — streamlining audits, documents, training, deviations, CAPA, and more.</p>
+      </div>
+      <div class="about-card reveal">
+        <div class="card-icon icon-gold">⚡</div>
+        <h3>Why It Matters</h3>
+        <p>Regulatory operations in pharma are high-stakes. One missed deviation, one delayed audit report, one outdated SOP can cost millions. We reduce that risk while dramatically improving throughput.</p>
+      </div>
+      <div class="about-card reveal">
+        <div class="card-icon icon-coral">🌐</div>
+        <h3>Who We Serve</h3>
+        <p>Pharmaceutical manufacturers, biopharmaceutical firms, contract research organizations (CROs), contract manufacturing organizations (CMOs), and pharma service vendors and suppliers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION & MISSION -->
+<section id="vision">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-label reveal">Direction</div>
+    <h2 class="section-title reveal">Vision & Mission</h2>
+  </div>
+  <div class="vm-grid">
+    <div class="vm-card vm-card-vision reveal">
+      <div class="vm-label vision-label">Vision</div>
+      <h2>To be the most trusted AI platform for pharmaceutical operational intelligence — globally.</h2>
+      <p>We envision a future where every pharmaceutical company, regardless of size, has access to intelligent, AI-powered compliance and quality tools that level the playing field — making world-class operational standards accessible, affordable, and automated.</p>
+      <div class="vm-bg-num">V</div>
+    </div>
+    <div class="vm-card vm-card-mission reveal">
+      <div class="vm-label mission-label">Mission</div>
+      <h2>To eliminate operational inefficiency in pharma through purposeful, generative AI innovation.</h2>
+      <p>Our mission is to build AI tools that are purpose-built for GxP environments — reducing time spent on documentation, audits, change control, deviations, and training by at least 80%, while improving quality, traceability, and regulatory readiness.</p>
+      <div class="vm-bg-num">M</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="products-header">
+    <div class="section-label reveal">Our Suite</div>
+    <h2 class="section-title reveal">AI-Powered Tools for<br>Pharma Operations</h2>
+    <p class="section-desc reveal">Each tool is designed with GxP compliance in mind, powered by generative AI, and built for the real-world workflows of pharmaceutical operations teams.</p>
+  </div>
+  <div class="products-grid">
+
+    <!-- FLAGSHIP -->
+    <div class="product-card featured reveal">
+      <div class="product-status status-live">● Live Now</div>
+      <h3>SynthAudit AI</h3>
+      <p>Our flagship tool. Automatically generates complete audit plans and audit reports with minimal user input. Powered by Google Gemini AI. Output is stored directly to the user's Google Drive. Hosted on Google Apps Script for zero-infrastructure deployment.</p>
+      <div class="product-tags">
+        <span class="tag">Audit Plan</span>
+        <span class="tag">Audit Report</span>
+        <span class="tag">Gemini AI</span>
+        <span class="tag">Google Drive</span>
+        <span class="tag">Auto-Generate</span>
+      </div>
+    </div>
+
+    <!-- COMING SOON PRODUCTS -->
+    <div class="product-card reveal">
+      <div class="product-status status-coming">Coming Soon</div>
+      <h3>LearnPharma AI</h3>
+      <p>An AI-driven Learning Management System built for pharma training needs — SOPs, GMP training, role-based curricula, automated assessments, and compliance tracking.</p>
+      <div class="product-tags">
+        <span class="tag">LMS</span><span class="tag">Training</span><span class="tag">GxP</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-status status-coming">Coming Soon</div>
+      <h3>ArchiveIQ</h3>
+      <p>Intelligent archive management system for regulated documents. AI-powered classification, retention scheduling, and retrieval — with full audit trail.</p>
+      <div class="product-tags">
+        <span class="tag">Archive</span><span class="tag">Document Lifecycle</span><span class="tag">Retention</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-status status-coming">Coming Soon</div>
+      <h3>ChangeFlow AI</h3>
+      <p>Automated change management system. AI drafts change proposals, impact assessments, and closure summaries — with configurable workflow approvals.</p>
+      <div class="product-tags">
+        <span class="tag">Change Control</span><span class="tag">Impact Assessment</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-status status-coming">Coming Soon</div>
+      <h3>CAPA Intelligence</h3>
+      <p>AI-assisted Corrective and Preventive Action system. Root cause analysis support, action plan generation, effectiveness check scheduling, and trend analytics.</p>
+      <div class="product-tags">
+        <span class="tag">CAPA</span><span class="tag">Root Cause</span><span class="tag">Trend Analysis</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-status status-coming">Coming Soon</div>
+      <h3>DeviationIQ</h3>
+      <p>Streamlined deviation management from event capture to closure. AI proposes investigations, risk classifications, and closure statements automatically.</p>
+      <div class="product-tags">
+        <span class="tag">Deviations</span><span class="tag">Risk Classification</span>
+      </div>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-status status-coming">Coming Soon</div>
+      <h3>DocuPharma AI</h3>
+      <p>AI-powered document management system. Smart SOP generation, version control, periodic review reminders, and role-based access — all GxP compliant.</p>
+      <div class="product-tags">
+        <span class="tag">DMS</span><span class="tag">SOP</span><span class="tag">Version Control</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- POLICIES -->
+<section id="policies">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-label reveal">How We Operate</div>
+    <h2 class="section-title reveal">Our Policies &<br>Commitments</h2>
+    <p class="section-desc reveal">We hold ourselves to the same standard of quality and compliance that we help our clients achieve.</p>
+  </div>
+  <div class="policies-grid" style="max-width:1200px;margin:4rem auto 0;">
+    <div class="policy-item reveal">
+      <div class="policy-num">01</div>
+      <div class="policy-content">
+        <h3>Data Privacy & Security</h3>
+        <p>All data processed through our tools is handled in compliance with applicable data protection laws. We do not store sensitive operational data beyond what is required for service delivery. Users retain full ownership of their documents and outputs.</p>
+      </div>
+    </div>
+    <div class="policy-item reveal">
+      <div class="policy-num">02</div>
+      <div class="policy-content">
+        <h3>GxP-Oriented Development</h3>
+        <p>Our tools are designed with GxP environments in mind — supporting audit trails, electronic records, version control, and role-based access in alignment with principles from FDA 21 CFR Part 11 and EU GMP Annex 11.</p>
+      </div>
+    </div>
+    <div class="policy-item reveal">
+      <div class="policy-num">03</div>
+      <div class="policy-content">
+        <h3>Ethical AI Use</h3>
+        <p>We are committed to transparent, responsible AI. Our generative AI outputs are clearly identified as AI-assisted. We maintain human-in-the-loop review as a core principle — our tools assist, they do not replace qualified judgment.</p>
+      </div>
+    </div>
+    <div class="policy-item reveal">
+      <div class="policy-num">04</div>
+      <div class="policy-content">
+        <h3>Continuous Improvement</h3>
+        <p>We practice what we preach. Our internal development follows agile, quality-driven methodologies. Tools are iteratively improved based on user feedback, regulatory evolution, and advances in AI technology.</p>
+      </div>
+    </div>
+    <div class="policy-item reveal">
+      <div class="policy-num">05</div>
+      <div class="policy-content">
+        <h3>Client Confidentiality</h3>
+        <p>All client engagements, data, and operational details are treated with the highest level of confidentiality. Non-disclosure is a standing commitment — not just a contract clause.</p>
+      </div>
+    </div>
+    <div class="policy-item reveal">
+      <div class="policy-num">06</div>
+      <div class="policy-content">
+        <h3>Accessibility & Inclusivity</h3>
+        <p>We believe powerful AI tools should be accessible to pharma companies of all sizes — from global manufacturers to small biotechs and CROs. Our pricing and deployment models reflect this commitment to democratizing compliance excellence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDING -->
+<section id="branding">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-label reveal">Identity</div>
+    <h2 class="section-title reveal">Brand Philosophy</h2>
+    <p class="section-desc reveal">Our brand reflects precision, trust, and intelligent innovation — the three pillars of everything we build.</p>
+  </div>
+  <div class="brand-grid">
+    <div>
+      <h3 class="section-label reveal" style="margin-bottom:1.5rem;font-size:0.8rem;">Color Palette</h3>
+      <div class="brand-palette reveal">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#0D9D8A;"></div>
+          <div class="swatch-label">Compliance Teal<br>#0D9D8A</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#050F1C;"></div>
+          <div class="swatch-label">Deep Navy<br>#050F1C</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#E8C672;"></div>
+          <div class="swatch-label">Precision Gold<br>#E8C672</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#F0F8F6;"></div>
+          <div class="swatch-label">Clean White<br>#F0F8F6</div>
+        </div>
+      </div>
+
+      <h3 class="section-label reveal" style="margin-bottom:1.5rem;font-size:0.8rem;">Brand Values</h3>
+      <div class="brand-values reveal">
+        <div class="brand-val">
+          <div class="brand-val-dot" style="background:var(--teal);"></div>
+          <div>
+            <div class="brand-val-text">Precision</div>
+            <div class="brand-val-sub">Every output we generate is accurate, structured, and audit-ready.</div>
+          </div>
+        </div>
+        <div class="brand-val">
+          <div class="brand-val-dot" style="background:var(--accent-gold);"></div>
+          <div>
+            <div class="brand-val-text">Trust</div>
+            <div class="brand-val-sub">Built for regulated environments. Designed for accountability.</div>
+          </div>
+        </div>
+        <div class="brand-val">
+          <div class="brand-val-dot" style="background:var(--accent-coral);"></div>
+          <div>
+            <div class="brand-val-text">Intelligence</div>
+            <div class="brand-val-sub">AI that understands the context of compliance — not just the text.</div>
+          </div>
+        </div>
+        <div class="brand-val">
+          <div class="brand-val-dot" style="background:var(--muted);"></div>
+          <div>
+            <div class="brand-val-text">Simplicity</div>
+            <div class="brand-val-sub">Complex problems solved with clean, intuitive interfaces.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="section-label reveal" style="margin-bottom:1.5rem;font-size:0.8rem;">Typography</h3>
+      <div class="typo-demo reveal">
+        <div class="typo-name">Display — Syne</div>
+        <div class="typo-primary">AI That Synthesizes<br>Quality.</div>
+        <div class="typo-name" style="margin-top:1rem;">Body — DM Sans</div>
+        <div class="typo-secondary">
+          Designed for clarity in complex environments. DM Sans brings readability to dense regulatory content, while Syne headlines assert authority and forward-thinking identity.
+        </div>
+
+        <div style="border-top:1px solid var(--navy-border);padding-top:1.5rem;margin-top:0.5rem;">
+          <div class="typo-name">Brand Voice</div>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.8;margin-top:0.5rem;">
+            Authoritative but approachable. Technical but human. We speak to scientists and quality professionals — not to generic enterprise buyers. Our tone is confident, clear, and precise.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY NAMES -->
+<section id="names">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-label reveal">Identity Options</div>
+    <h2 class="section-title reveal">10 Suggested Company Names</h2>
+    <p class="section-desc reveal">Each name has been crafted to reflect your company's unique positioning — AI-powered, pharma-specific, compliance-focused, and forward-looking.</p>
+  </div>
+  <div class="names-grid">
+
+    <div class="name-card reveal" style="border-color:rgba(13,157,138,0.55);background:linear-gradient(135deg,rgba(13,157,138,0.1) 0%,var(--navy-card) 70%);">
+      <div class="name-tag" style="background:rgba(13,157,138,0.2);color:var(--teal-light);border-color:rgba(13,157,138,0.4);">✓ Selected Name</div>
+      <div class="name-main">Synth<span>Qual</span></div>
+      <p>"Synth" connects directly to SynthAudit AI — your flagship product — and signals AI-synthesized output. "Qual" speaks to Quality, the heartbeat of pharmaceutical operations. Together: <em>Synthesized Quality Intelligence</em>. Unique, available, and instantly meaningful to pharma QA/QC professionals. Recommended domain: <strong>synthqual.ai</strong></p>
+    </div>
+
+    <div class="name-card reveal">
+      <div class="name-tag">Compliance + Tech</div>
+      <div class="name-main">Qualix<span>AI</span></div>
+      <p>Derived from "quality" + "-ix" (a modern tech suffix). Signals quality management with a tech-forward identity. Clean, brandable, and immediately relevant to pharma QA/QC teams.</p>
+    </div>
+
+    <div class="name-card reveal">
+      <div class="name-tag">Synthesis + Operations</div>
+      <div class="name-main">Synth<span>Ops</span></div>
+      <p>Inspired by your flagship "SynthAudit AI" — "Synth" evokes synthesis, generation, and AI creativity, while "Ops" grounds it in real-world pharma operations. Cohesive with your existing branding.</p>
+    </div>
+
+    <div class="name-card reveal">
+      <div class="name-tag">Life Sciences Cloud</div>
+      <div class="name-main">Pharma<span>Vault</span></div>
+      <p>A nod to secure document management and trust. "Vault" is a powerful metaphor for secure, organized, reliable data storage — perfectly aligned to your DMS, archive, and audit tools.</p>
+    </div>
+
+    <div class="name-card reveal">
+      <div class="name-tag">Regulated Intelligence</div>
+      <div class="name-main">Reg<span>Mind</span></div>
+      <p>Short for "Regulatory Mind" — positions your company as an intelligent regulatory advisor. Appeals strongly to Quality Assurance, Regulatory Affairs, and Compliance teams across pharma and biopharma.</p>
+    </div>
+
+    <div class="name-card reveal">
+      <div class="name-tag">Neural + GxP</div>
+      <div class="name-main">Auris<span>AI</span></div>
+      <p>"Auris" is Latin for "listener/observer" — a subtle nod to the audit and monitoring focus of your tools. Elegant, unique, globally pronounceable, and highly brandable in life sciences.</p>
+    </div>
+
+    <div class="name-card reveal">
+      <div class="name-tag">Compliance First</div>
+      <div class="name-main">Comply<span>Gen</span></div>
+      <p>"Comply" speaks directly to your core market need — GxP compliance — while "Gen" signals generative AI. The combination is instantly descriptive, especially to regulatory and quality teams in pharma.</p>
+    </div>
+
+    <div class="name-card reveal">
+      <div class="name-tag">Trusted Platform</div>
+      <div class="name-main">Nexus<span>Pharma</span></div>
+      <p>"Nexus" means connection or hub — positioning your platform as the central intelligence layer connecting all pharma operational workflows. Strong, authoritative, and globally scalable.</p>
+    </div>
+
+    <div class="name-card reveal">
+      <div class="name-tag">Audit + AI</div>
+      <div class="name-main">Audra<span>Labs</span></div>
+      <p>A personified brand name built from "Audit" + a human name ending. "Labs" positions you as an innovation-first company. Friendly and approachable yet professional — great for SME pharma clients.</p>
+    </div>
+
+    <div class="name-card reveal">
+      <div class="name-tag">Precision Automation</div>
+      <div class="name-main">Clari<span>Pharma</span></div>
+      <p>"Clari" stems from "clarity" — emphasizing the core benefit your tools deliver: clarity in compliance, documentation, and operations. "Pharma" anchors it in the industry. Clean, professional, trustworthy.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact">
+  <div class="cta-box">
+    <div class="section-label reveal" style="display:inline-block;">Let's Build Together</div>
+    <h2 class="reveal">Ready to transform your <span style="color:var(--teal-light)">pharma operations</span> with AI?</h2>
+    <p class="reveal">Whether you want a demo of SynthAudit AI, have questions about upcoming tools, or want to discuss a custom solution — we'd love to hear from you.</p>
+    <div class="hero-ctas reveal">
+      <a href="mailto:freelancerajay248@gmail.com" class="btn-primary">Get In Touch</a>
+      <a href="#products" class="btn-ghost">View All Tools</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">Synth<span>Qual</span></div>
+  <p>© 2025 SynthQual · AI-Powered Quality Intelligence for Life Sciences</p>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#policies">Policies</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav scroll effect
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () =
