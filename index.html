@@ -730,6 +730,22 @@
 
   .name-card p { font-size: 0.87rem; color: var(--muted); line-height: 1.6; }
 
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--navy);
+    padding: 7rem 5%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (max-width: 900px) {
+    #contact > div { grid-template-columns: 1fr !important; gap: 3rem !important; }
+    #vision .reveal[style*="grid-template-columns:repeat(4"] { grid-template-columns: repeat(2,1fr) !important; }
+  }
+  @media (max-width: 600px) {
+    #vision .reveal[style*="grid-template-columns:repeat(4"] { grid-template-columns: 1fr !important; }
+  }
+
   /* ── SCROLL ANIMATIONS ── */
   .reveal {
     opacity: 0;
@@ -820,27 +836,33 @@
       <div class="section-label reveal">Who We Are</div>
       <h2 class="section-title reveal">Our Objective</h2>
       <p class="section-desc reveal">
-        We exist to solve one of the most persistent problems in the pharmaceutical industry — operational inefficiency rooted in manual, time-consuming compliance and quality processes.
+        SynthQual was founded with a single, focused purpose — to eliminate the operational burden that pharmaceutical and biopharmaceutical companies face every day through manual, repetitive, and error-prone compliance processes.
       </p>
       <p class="section-desc reveal" style="margin-top:1rem;">
-        By combining the power of Generative AI with deep domain expertise in pharmaceutical operations, we create intelligent tools that replace hours of manual effort with minutes of accurate, structured output — without sacrificing the quality, compliance, or auditability the industry demands.
+        The pharmaceutical industry operates under some of the most stringent regulatory frameworks in the world. Audit reports, deviation records, CAPA investigations, change controls, SOPs, training records — each of these demands time, precision, and expert knowledge. Yet for most organisations, these processes are still largely manual, consuming hundreds of hours that could be better spent on innovation and patient outcomes.
+      </p>
+      <p class="section-desc reveal" style="margin-top:1rem;">
+        SynthQual changes that. By harnessing the power of Generative AI — including Google Gemini — we synthesise accurate, structured, GxP-aligned documentation and operational outputs with minimal user input. Our tools are not generic AI wrappers; they are purpose-built for the pharmaceutical context, understanding the language, standards, and expectations of regulators, auditors, and quality professionals.
+      </p>
+      <p class="section-desc reveal" style="margin-top:1rem;">
+        Our objective is clear: save significant time and resources for our clients, improve the quality and accuracy of their compliance outputs, and make world-class operational standards accessible to pharma organisations of every size — from global manufacturers to specialist CROs and CMOs.
       </p>
     </div>
     <div class="about-visual">
       <div class="about-card reveal">
         <div class="card-icon icon-teal">🎯</div>
         <h3>What We Do</h3>
-        <p>We develop AI-powered SaaS tools tailored exclusively for pharmaceutical, biopharmaceutical, and associated service industries — streamlining audits, documents, training, deviations, CAPA, and more.</p>
+        <p>We design and develop AI-powered SaaS tools tailored exclusively for pharmaceutical, biopharmaceutical, and associated service industries. Our suite covers the full spectrum of GxP quality operations — audit management, document control, training, deviations, CAPA, change management, and archiving — all enhanced by generative AI to dramatically reduce effort and improve output quality.</p>
       </div>
       <div class="about-card reveal">
         <div class="card-icon icon-gold">⚡</div>
         <h3>Why It Matters</h3>
-        <p>Regulatory operations in pharma are high-stakes. One missed deviation, one delayed audit report, one outdated SOP can cost millions. We reduce that risk while dramatically improving throughput.</p>
+        <p>Regulatory operations in pharma are high-stakes. A missed deviation, a delayed audit report, or an outdated SOP can result in regulatory action, product recalls, or patient harm. The cost of non-compliance runs into millions. SynthQual reduces that risk significantly — not by replacing human expertise, but by augmenting it with intelligent, AI-assisted tools that ensure nothing is missed and everything is documented accurately.</p>
       </div>
       <div class="about-card reveal">
         <div class="card-icon icon-coral">🌐</div>
         <h3>Who We Serve</h3>
-        <p>Pharmaceutical manufacturers, biopharmaceutical firms, contract research organizations (CROs), contract manufacturing organizations (CMOs), and pharma service vendors and suppliers.</p>
+        <p>Our tools are built for pharmaceutical manufacturers, biopharmaceutical companies, contract research organisations (CROs), contract manufacturing organisations (CMOs), and all pharma-associated service providers, vendors, and suppliers. Whether you are a 10-person quality team or a global organisation with hundreds of sites, SynthQual scales to meet your needs.</p>
       </div>
     </div>
   </div>
@@ -851,19 +873,47 @@
   <div style="max-width:1200px;margin:0 auto;">
     <div class="section-label reveal">Direction</div>
     <h2 class="section-title reveal">Vision & Mission</h2>
+    <p class="section-desc reveal">At SynthQual, our direction is shaped by a deep understanding of the pharmaceutical industry's needs and an unwavering commitment to the responsible use of AI to serve them.</p>
   </div>
   <div class="vm-grid">
     <div class="vm-card vm-card-vision reveal">
       <div class="vm-label vision-label">Vision</div>
-      <h2>To be the most trusted AI platform for pharmaceutical operational intelligence — globally.</h2>
-      <p>We envision a future where every pharmaceutical company, regardless of size, has access to intelligent, AI-powered compliance and quality tools that level the playing field — making world-class operational standards accessible, affordable, and automated.</p>
+      <h2>To be the most trusted AI platform for pharmaceutical quality and operational intelligence — globally.</h2>
+      <p>We envision a future where every pharmaceutical company, regardless of size or geography, has access to intelligent, AI-powered quality and compliance tools that level the playing field. A future where preparing an audit report takes minutes, not days. Where deviations are investigated with AI-guided precision. Where training compliance is automated and never missed. Where quality professionals spend their time on decisions that matter — not on documentation that AI can handle.</p>
+      <p style="margin-top:1rem;">We are building that future, one tool at a time — starting with SynthAudit AI and expanding into a comprehensive suite that covers every critical dimension of pharmaceutical quality operations.</p>
       <div class="vm-bg-num">V</div>
     </div>
     <div class="vm-card vm-card-mission reveal">
       <div class="vm-label mission-label">Mission</div>
       <h2>To eliminate operational inefficiency in pharma through purposeful, generative AI innovation.</h2>
       <p>Our mission is to build AI tools that are purpose-built for GxP environments — reducing time spent on documentation, audits, change control, deviations, and training by at least 80%, while improving quality, traceability, and regulatory readiness.</p>
+      <p style="margin-top:1rem;">We achieve this by combining deep pharmaceutical domain expertise with cutting-edge generative AI technology. Every tool we build is designed around three principles: it must save significant time, it must improve accuracy, and it must never compromise the compliance standards the industry demands.</p>
+      <p style="margin-top:1rem;">We serve not just large pharmaceutical manufacturers but also the broader ecosystem — CROs, CMOs, service providers, and vendors — who are equally critical to delivering safe, effective medicines to patients worldwide.</p>
       <div class="vm-bg-num">M</div>
+    </div>
+  </div>
+
+  <!-- Core Values Strip -->
+  <div style="max-width:1200px;margin:3rem auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;" class="reveal">
+    <div style="background:var(--navy-card);border:1px solid var(--navy-border);border-radius:12px;padding:1.5rem;text-align:center;">
+      <div style="font-size:2rem;margin-bottom:0.75rem;">🔬</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--white);margin-bottom:0.4rem;">Domain Depth</div>
+      <div style="font-size:0.83rem;color:var(--muted);line-height:1.6;">Built by people who understand pharma quality operations — not just AI engineers.</div>
+    </div>
+    <div style="background:var(--navy-card);border:1px solid var(--navy-border);border-radius:12px;padding:1.5rem;text-align:center;">
+      <div style="font-size:2rem;margin-bottom:0.75rem;">🤖</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--white);margin-bottom:0.4rem;">AI-First</div>
+      <div style="font-size:0.83rem;color:var(--muted);line-height:1.6;">Generative AI is not a feature — it is the foundation of everything we build.</div>
+    </div>
+    <div style="background:var(--navy-card);border:1px solid var(--navy-border);border-radius:12px;padding:1.5rem;text-align:center;">
+      <div style="font-size:2rem;margin-bottom:0.75rem;">🛡️</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--white);margin-bottom:0.4rem;">Compliance-Ready</div>
+      <div style="font-size:0.83rem;color:var(--muted);line-height:1.6;">Every tool is designed with GxP, 21 CFR Part 11, and EU GMP Annex 11 in mind.</div>
+    </div>
+    <div style="background:var(--navy-card);border:1px solid var(--navy-border);border-radius:12px;padding:1.5rem;text-align:center;">
+      <div style="font-size:2rem;margin-bottom:0.75rem;">🌍</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--white);margin-bottom:0.4rem;">Accessible</div>
+      <div style="font-size:0.83rem;color:var(--muted);line-height:1.6;">Powerful tools priced and designed for pharma teams of all sizes globally.</div>
     </div>
   </div>
 </section>
@@ -954,49 +1004,63 @@
   <div style="max-width:1200px;margin:0 auto;">
     <div class="section-label reveal">How We Operate</div>
     <h2 class="section-title reveal">Our Policies &<br>Commitments</h2>
-    <p class="section-desc reveal">We hold ourselves to the same standard of quality and compliance that we help our clients achieve.</p>
+    <p class="section-desc reveal">We hold ourselves to the same standard of quality and compliance that we help our clients achieve. These are not aspirational statements — they are the operating principles that guide every decision we make at SynthQual, from product development to client engagement.</p>
   </div>
   <div class="policies-grid" style="max-width:1200px;margin:4rem auto 0;">
     <div class="policy-item reveal">
       <div class="policy-num">01</div>
       <div class="policy-content">
         <h3>Data Privacy & Security</h3>
-        <p>All data processed through our tools is handled in compliance with applicable data protection laws. We do not store sensitive operational data beyond what is required for service delivery. Users retain full ownership of their documents and outputs.</p>
+        <p>All data processed through our tools is handled in strict compliance with applicable data protection laws including GDPR and other regional privacy regulations. We do not store, sell, or share sensitive operational data beyond what is required for service delivery. Users retain full ownership of all documents, inputs, and AI-generated outputs. Our tools are designed so that data remains within the user's own environment — for example, SynthAudit AI stores all outputs directly to the user's own Google Drive, not on our servers.</p>
       </div>
     </div>
     <div class="policy-item reveal">
       <div class="policy-num">02</div>
       <div class="policy-content">
         <h3>GxP-Oriented Development</h3>
-        <p>Our tools are designed with GxP environments in mind — supporting audit trails, electronic records, version control, and role-based access in alignment with principles from FDA 21 CFR Part 11 and EU GMP Annex 11.</p>
+        <p>Every tool in the SynthQual suite is designed with GxP regulated environments as the baseline — not an afterthought. This means our tools support audit trails, electronic records integrity, version control, user access management, and role-based permissions in alignment with the principles of FDA 21 CFR Part 11, EU GMP Annex 11, and ICH Q10. We work closely with quality professionals during development to ensure our tools meet the real expectations of regulatory inspectors and internal auditors.</p>
       </div>
     </div>
     <div class="policy-item reveal">
       <div class="policy-num">03</div>
       <div class="policy-content">
-        <h3>Ethical AI Use</h3>
-        <p>We are committed to transparent, responsible AI. Our generative AI outputs are clearly identified as AI-assisted. We maintain human-in-the-loop review as a core principle — our tools assist, they do not replace qualified judgment.</p>
+        <h3>Ethical & Responsible AI Use</h3>
+        <p>We are committed to transparent, responsible, and ethical AI. All generative AI outputs produced by our tools are clearly identified as AI-assisted and are designed to be reviewed and approved by qualified human professionals before use. We maintain a strict human-in-the-loop principle — our AI tools augment and accelerate human judgment; they do not replace it. We do not use client data to train AI models. We are transparent about the AI technologies we use and their limitations.</p>
       </div>
     </div>
     <div class="policy-item reveal">
       <div class="policy-num">04</div>
       <div class="policy-content">
         <h3>Continuous Improvement</h3>
-        <p>We practice what we preach. Our internal development follows agile, quality-driven methodologies. Tools are iteratively improved based on user feedback, regulatory evolution, and advances in AI technology.</p>
+        <p>We practice what we preach. SynthQual's own internal development processes follow agile, quality-driven methodologies inspired by the same frameworks we build tools for. Our products are iteratively improved based on structured user feedback, evolving regulatory guidance, and advancements in generative AI technology. We commit to regular product updates, transparent release notes, and an open channel of communication with our clients about what's changing and why.</p>
       </div>
     </div>
     <div class="policy-item reveal">
       <div class="policy-num">05</div>
       <div class="policy-content">
         <h3>Client Confidentiality</h3>
-        <p>All client engagements, data, and operational details are treated with the highest level of confidentiality. Non-disclosure is a standing commitment — not just a contract clause.</p>
+        <p>All client engagements, shared data, proprietary processes, and operational information are treated with the highest level of confidentiality. Non-disclosure is a standing commitment for every client relationship — not merely a contractual obligation. We understand that pharmaceutical companies operate in a highly competitive and regulated environment, and we take seriously our responsibility to protect any information entrusted to us during onboarding, product implementation, or ongoing support.</p>
       </div>
     </div>
     <div class="policy-item reveal">
       <div class="policy-num">06</div>
       <div class="policy-content">
         <h3>Accessibility & Inclusivity</h3>
-        <p>We believe powerful AI tools should be accessible to pharma companies of all sizes — from global manufacturers to small biotechs and CROs. Our pricing and deployment models reflect this commitment to democratizing compliance excellence.</p>
+        <p>We firmly believe that powerful AI-driven quality tools should not be exclusive to large multinational pharmaceutical corporations. SynthQual's pricing models, deployment architectures, and onboarding processes are designed to make our tools accessible to pharma companies of all sizes — from emerging biotechs and small CROs to mid-size manufacturers and global organisations. We are committed to removing barriers to compliance excellence, not creating new ones.</p>
+      </div>
+    </div>
+    <div class="policy-item reveal">
+      <div class="policy-num">07</div>
+      <div class="policy-content">
+        <h3>Quality of Output</h3>
+        <p>We stand behind the quality of every AI-generated output our tools produce. Our prompting frameworks, domain-specific training contexts, and output validation logic are continuously refined to ensure that generated documents — audit plans, audit reports, CAPA records, deviation reports, and more — meet the structural, linguistic, and regulatory expectations of the pharmaceutical industry. We do not release tools until they meet our own internal quality bar.</p>
+      </div>
+    </div>
+    <div class="policy-item reveal">
+      <div class="policy-num">08</div>
+      <div class="policy-content">
+        <h3>Client Support & Partnership</h3>
+        <p>We view every client relationship as a long-term partnership. We provide responsive support, clear documentation, and proactive communication about product updates, known issues, and upcoming features. Our clients are not just users — they are co-creators of the SynthQual roadmap. Feedback from quality professionals in the field directly shapes what we build next, ensuring our tools remain grounded in real-world operational realities.</p>
       </div>
     </div>
   </div>
@@ -1157,17 +1221,119 @@
   </div>
 </section>
 
-<!-- CTA -->
+<!-- CONTACT -->
 <section id="contact">
-  <div class="cta-box">
-    <div class="section-label reveal" style="display:inline-block;">Let's Build Together</div>
-    <h2 class="reveal">Ready to transform your <span style="color:var(--teal-light)">pharma operations</span> with AI?</h2>
-    <p class="reveal">Whether you want a demo of SynthAudit AI, have questions about upcoming tools, or want to discuss a custom solution — we'd love to hear from you.</p>
-    <div class="hero-ctas reveal">
-      <a href="mailto:freelancerajay248@gmail.com" class="btn-primary">Get In Touch</a>
-      <a href="#products" class="btn-ghost">View All Tools</a>
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;">
+
+    <!-- Left: Contact Info -->
+    <div>
+      <div class="section-label reveal" style="display:inline-block;">Get In Touch</div>
+      <h2 class="section-title reveal">Let's build something <span style="color:var(--teal-light)">meaningful</span> together.</h2>
+      <p class="section-desc reveal" style="margin-bottom:2rem;">
+        Whether you're looking for a demo of SynthAudit AI, want to discuss a custom AI tool for your pharma operations, have questions about our upcoming product suite, or simply want to explore how SynthQual can help your organisation — we'd love to hear from you.
+      </p>
+      <p class="section-desc reveal" style="margin-bottom:3rem;">
+        We work with pharmaceutical manufacturers, biopharmaceutical companies, CROs, CMOs, and pharma service providers of all sizes. No enquiry is too small or too complex — reach out and let's start a conversation.
+      </p>
+
+      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+        <div class="reveal" style="display:flex;align-items:flex-start;gap:1rem;">
+          <div style="width:44px;height:44px;border-radius:10px;background:rgba(13,157,138,0.12);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;">📧</div>
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--white);margin-bottom:0.2rem;">Email Us</div>
+            <a href="mailto:synthqualai@gmail.com" style="color:var(--teal-light);text-decoration:none;font-size:0.95rem;">synthqualai@gmail.com</a>
+            <div style="font-size:0.8rem;color:var(--muted);margin-top:0.2rem;">We typically respond within 24 hours on business days.</div>
+          </div>
+        </div>
+        <div class="reveal" style="display:flex;align-items:flex-start;gap:1rem;">
+          <div style="width:44px;height:44px;border-radius:10px;background:rgba(13,157,138,0.12);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;">🌐</div>
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--white);margin-bottom:0.2rem;">Our Platform</div>
+            <span style="color:var(--teal-light);font-size:0.95rem;">synthqual.ai</span>
+            <div style="font-size:0.8rem;color:var(--muted);margin-top:0.2rem;">Coming soon — register your interest to get early access.</div>
+          </div>
+        </div>
+        <div class="reveal" style="display:flex;align-items:flex-start;gap:1rem;">
+          <div style="width:44px;height:44px;border-radius:10px;background:rgba(13,157,138,0.12);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;">🚀</div>
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-weight:700;color:var(--white);margin-bottom:0.2rem;">Try SynthAudit AI</div>
+            <span style="color:var(--teal-light);font-size:0.95rem;">Available Now — Request Access via Email</span>
+            <div style="font-size:0.8rem;color:var(--muted);margin-top:0.2rem;">Our flagship audit plan and report generator is live and ready for use.</div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- Right: Contact Form -->
+    <div class="reveal">
+      <div style="background:var(--navy-card);border:1px solid var(--navy-border);border-radius:16px;padding:2.5rem;">
+        <h3 style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;">Send us a Message</h3>
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:2rem;">Fill in the form below and we'll get back to you as soon as possible.</p>
+
+        <form action="https://formsubmit.co/synthqualai@gmail.com" method="POST" style="display:flex;flex-direction:column;gap:1.2rem;">
+          <!-- Disable CAPTCHA & set subject -->
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="New Enquiry from SynthQual Website">
+          <input type="hidden" name="_next" value="">
+
+          <div>
+            <label style="display:block;font-size:0.8rem;font-weight:600;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;">Full Name *</label>
+            <input type="text" name="name" required placeholder="e.g. Dr. Sarah Johnson"
+              style="width:100%;background:var(--navy);border:1px solid var(--navy-border);border-radius:8px;padding:0.75rem 1rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;"
+              onfocus="this.style.borderColor='#0D9D8A'" onblur="this.style.borderColor='#12304A'">
+          </div>
+
+          <div>
+            <label style="display:block;font-size:0.8rem;font-weight:600;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;">Work Email *</label>
+            <input type="email" name="email" required placeholder="you@company.com"
+              style="width:100%;background:var(--navy);border:1px solid var(--navy-border);border-radius:8px;padding:0.75rem 1rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;"
+              onfocus="this.style.borderColor='#0D9D8A'" onblur="this.style.borderColor='#12304A'">
+          </div>
+
+          <div>
+            <label style="display:block;font-size:0.8rem;font-weight:600;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;">Organisation</label>
+            <input type="text" name="organisation" placeholder="Your company or organisation"
+              style="width:100%;background:var(--navy);border:1px solid var(--navy-border);border-radius:8px;padding:0.75rem 1rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;"
+              onfocus="this.style.borderColor='#0D9D8A'" onblur="this.style.borderColor='#12304A'">
+          </div>
+
+          <div>
+            <label style="display:block;font-size:0.8rem;font-weight:600;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;">I'm interested in *</label>
+            <select name="interest" required
+              style="width:100%;background:var(--navy);border:1px solid var(--navy-border);border-radius:8px;padding:0.75rem 1rem;color:var(--off-white);font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;appearance:none;"
+              onfocus="this.style.borderColor='#0D9D8A'" onblur="this.style.borderColor='#12304A'">
+              <option value="" disabled selected>Select an option</option>
+              <option value="SynthAudit AI Demo">SynthAudit AI — Demo / Access</option>
+              <option value="LMS">Learning Management System</option>
+              <option value="CAPA">CAPA Management System</option>
+              <option value="Deviation">Deviation Management System</option>
+              <option value="Change Management">Change Management System</option>
+              <option value="DMS">Document Management System</option>
+              <option value="Archive">Archive Management System</option>
+              <option value="Custom Tool">Custom AI Tool Development</option>
+              <option value="General Enquiry">General Enquiry</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="display:block;font-size:0.8rem;font-weight:600;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;">Message *</label>
+            <textarea name="message" required rows="4" placeholder="Tell us about your requirements, challenges, or questions..."
+              style="width:100%;background:var(--navy);border:1px solid var(--navy-border);border-radius:8px;padding:0.75rem 1rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;resize:vertical;transition:border-color 0.2s;line-height:1.6;"
+              onfocus="this.style.borderColor='#0D9D8A'" onblur="this.style.borderColor='#12304A'"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width:100%;text-align:center;padding:1rem;font-size:1rem;">
+            Send Message →
+          </button>
+          <p style="font-size:0.75rem;color:var(--muted);text-align:center;">Your information is kept strictly confidential. We do not share or sell your data.</p>
+        </form>
+      </div>
+    </div>
+
   </div>
+
+  <!-- background glow -->
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(13,157,138,0.07) 0%,transparent 65%);pointer-events:none;z-index:0;"></div>
 </section>
 
 <!-- FOOTER -->
@@ -1185,16 +1351,4 @@
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 60);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
-
-  // Nav scroll effect
-  const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () =
+  const observer = new In
