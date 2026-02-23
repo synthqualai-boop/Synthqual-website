@@ -210,8 +210,8 @@ footer p{font-size:.72rem;color:var(--muted);}
     <li><a href="#products">Products</a></li>
     <li><a href="#policies">Policies</a></li>
     <li><a href="#branding">Branding</a></li>
-    <li><a href="#" onclick="showLegal('privacy'); return false;">Privacy</a></li>
-    <li><a href="#" onclick="showLegal('terms'); return false;">Terms</a></li>
+    <li><a href="#privacy">Privacy Policy</a></li>
+    <li><a href="#terms">Terms of Service</a></li>
     <li><a href="#contact" class="nav-cta">Contact Us</a></li>
   </ul>
 </nav>
@@ -438,7 +438,7 @@ footer p{font-size:.72rem;color:var(--muted);}
       <div class="ci-head">Let's build something <span>meaningful</span> together.</div>
       <p class="ci-desc">Whether you're looking for a demo of SynthAudit AI, want to discuss a custom AI tool for your pharma operations, have questions about our upcoming product suite, or simply want to explore how SynthQual can help your organisation — we'd love to hear from you.</p>
       <p class="ci-desc">We work with pharmaceutical manufacturers, biopharmaceutical companies, CROs, CMOs, and pharma service providers of all sizes. No enquiry is too small — reach out and let's start a conversation.</p>
-      <div class="citem"><div class="cico">📧</div><div><div class="cilbl">Email Us</div><a href="/cdn-cgi/l/email-protection#dfaca6b1abb7aeaabeb3beb69fb8b2beb6b3f1bcb0b2" class="cival" style="text-decoration:none;"><span class="__cf_email__" data-cfemail="12616b7c667a6367737e737b52757f737b7e3c717d7f">[email&#160;protected]</span></a><div class="cisub">We typically respond within 24 hours on business days.</div></div></div>
+      <div class="citem"><div class="cico">📧</div><div><div class="cilbl">Email Us</div><a href="mailto:synthqualai@gmail.com" class="cival" style="text-decoration:none;">synthqualai@gmail.com</a><div class="cisub">We typically respond within 24 hours on business days.</div></div></div>
       <div class="citem"><div class="cico">🌐</div><div><div class="cilbl">Our Platform</div><div class="cival">synthqual.ai</div><div class="cisub">Coming soon — register your interest to get early access.</div></div></div>
       <div class="citem"><div class="cico">🚀</div><div><div class="cilbl">Try SynthAudit AI</div><div class="cival">Available Now — Request Access via Email</div><div class="cisub">Our flagship audit plan and report generator is live and ready for use.</div></div></div>
     </div>
@@ -486,22 +486,22 @@ footer p{font-size:.72rem;color:var(--muted);}
     <a href="#products">Products</a>
     <a href="#policies">Policies</a>
     <a href="#contact">Contact</a>
-    <a href="#" onclick="showLegal('privacy'); return false;">Privacy Policy</a>
-    <a href="#" onclick="showLegal('terms'); return false;">Terms of Service</a>
+    <a href="#privacy">Privacy Policy</a>
+    <a href="#terms">Terms of Service</a>
   </div>
 </footer>
 
-<!-- ── LEGAL OVERLAY ── -->
-<div id="legal-overlay" style="display:none;position:fixed;inset:0;z-index:200;background:var(--navy);overflow-y:auto;">
-  <div style="max-width:860px;margin:0 auto;padding:6rem 2rem 5rem;">
-
-    <!-- Close / Back Button -->
-    <button onclick="hideLegal()" style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(13,157,138,.12);border:1px solid rgba(13,157,138,.3);color:var(--teal-lt);border-radius:6px;padding:.55rem 1.1rem;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;margin-bottom:3rem;transition:background .2s;" onmouseover="this.style.background='rgba(13,157,138,.22)'" onmouseout="this.style.background='rgba(13,157,138,.12)'">
-      ← Back to Website
-    </button>
-
-    <!-- PRIVACY POLICY PAGE -->
-    <div id="legal-privacy">
+<!-- ── PRIVACY POLICY ── -->
+<section id="privacy" style="background:var(--navy2);">
+  <div class="si" style="max-width:860px;">
+    <div class="slbl anim">Legal · SynthAudit AI</div>
+    <h1 class="stitle anim" style="font-size:clamp(1.8rem,3.5vw,2.6rem);margin-bottom:.5rem;">Privacy Policy</h1>
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem;" class="anim">
+      <span style="font-size:.82rem;color:var(--muted);">📅 Effective Date: <strong style="color:var(--text);">23 February 2026</strong></span>
+      <span style="font-size:.82rem;color:var(--muted);">🔄 Last Updated: <strong style="color:var(--text);">23 February 2026</strong></span>
+    </div>
+    <div style="height:1px;background:linear-gradient(90deg,var(--teal),transparent);margin-bottom:2.5rem;opacity:.4;" class="anim"></div>
+    <div>
       <div style="font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:.75rem;">Legal · SynthAudit AI</div>
       <h1 style="font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.025em;line-height:1.1;margin-bottom:.75rem;color:var(--white);">Privacy Policy</h1>
       <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:3rem;">
@@ -582,136 +582,102 @@ footer p{font-size:.72rem;color:var(--muted);}
         <p style="font-size:.93rem;">🌐 <a href="https://synthqualai-boop.github.io/Synthqual-website/" target="_blank" style="color:var(--teal-lt);text-decoration:none;">synthqualai-boop.github.io/Synthqual-website/</a></p>
       </div>
 
-      <!-- Switch to Terms -->
-      <div style="margin-top:3rem;text-align:center;">
-        <p style="color:var(--muted);font-size:.88rem;margin-bottom:.75rem;">Also read our Terms of Service</p>
-        <button onclick="switchLegal('terms')" style="background:transparent;border:1px solid rgba(13,157,138,.35);color:var(--teal-lt);border-radius:6px;padding:.6rem 1.4rem;font-family:'DM Sans',sans-serif;font-size:.88rem;cursor:pointer;transition:background .2s;" onmouseover="this.style.background='rgba(13,157,138,.1)'" onmouseout="this.style.background='transparent'">View Terms of Service →</button>
+      <!-- Scroll to Terms link -->
+      <div style="margin-top:2.5rem;padding:1.2rem 1.5rem;background:var(--navyc);border:1px solid var(--bdrd);border-radius:10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;">
+        <span style="font-size:.85rem;color:var(--muted);">Also read our Terms of Service below ↓</span>
+        <a href="#terms" class="btn btn-p" style="font-size:.78rem;padding:.45rem 1.1rem;">View Terms of Service ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TERMS OF SERVICE ── -->
+<section id="terms" style="background:var(--navy);">
+  <div class="si" style="max-width:860px;">
+    <div class="slbl anim">Legal · SynthAudit AI</div>
+    <h1 class="stitle anim" style="font-size:clamp(1.8rem,3.5vw,2.6rem);margin-bottom:.5rem;">Terms of Service</h1>
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem;" class="anim">
+      <span style="font-size:.82rem;color:var(--muted);">📅 Effective Date: <strong style="color:var(--text);">23 February 2026</strong></span>
+      <span style="font-size:.82rem;color:var(--muted);">🔄 Last Updated: <strong style="color:var(--text);">23 February 2026</strong></span>
+    </div>
+    <div style="height:1px;background:linear-gradient(90deg,var(--teal),transparent);margin-bottom:2.5rem;opacity:.4;" class="anim"></div>
+
+    <!-- Section 1 -->
+    <div style="margin-bottom:2rem;" class="anim">
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:.8rem;display:flex;align-items:center;gap:.65rem;"><span style="color:var(--teal);font-size:.95rem;font-weight:800;">01</span> Acceptance of Terms</h2>
+      <p style="color:var(--muted);line-height:1.85;font-size:.9rem;">By using SynthAudit AI, you agree to these Terms of Service. If you do not agree, please discontinue use.</p>
+    </div>
+
+    <!-- Section 2 -->
+    <div style="margin-bottom:2rem;" class="anim">
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:.8rem;display:flex;align-items:center;gap:.65rem;"><span style="color:var(--teal);font-size:.95rem;font-weight:800;">02</span> Service Description</h2>
+      <div style="background:var(--navyc);border:1px solid var(--bdrd);border-radius:10px;padding:1.5rem;">
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:.55rem;">
+          <li style="color:var(--muted);font-size:.88rem;padding-left:1.1rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--teal);">→</span> The Application provides secure file management in Google Drive and generative text features via Gemini.</li>
+          <li style="color:var(--muted);font-size:.88rem;padding-left:1.1rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--teal);">→</span> The Application is provided "as is" without warranties of any kind.</li>
+        </ul>
       </div>
     </div>
 
-    <!-- TERMS OF SERVICE PAGE -->
-    <div id="legal-terms" style="display:none;">
-      <div style="font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:.75rem;">Legal · SynthAudit AI</div>
-      <h1 style="font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.025em;line-height:1.1;margin-bottom:.75rem;color:var(--white);">Terms of Service</h1>
-      <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:3rem;">
-        <span style="font-size:.82rem;color:var(--muted);">📅 Effective Date: <strong style="color:var(--off-white);">23 February 2026</strong></span>
-        <span style="font-size:.82rem;color:var(--muted);">🔄 Last Updated: <strong style="color:var(--off-white);">23 February 2026</strong></span>
+    <!-- Section 3 -->
+    <div style="margin-bottom:2rem;" class="anim">
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:.8rem;display:flex;align-items:center;gap:.65rem;"><span style="color:var(--teal);font-size:.95rem;font-weight:800;">03</span> User Responsibilities</h2>
+      <div style="background:var(--navyc);border:1px solid var(--bdrd);border-radius:10px;padding:1.5rem;">
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:.55rem;">
+          <li style="color:var(--muted);font-size:.88rem;padding-left:1.1rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--teal);">→</span> You are responsible for maintaining the confidentiality of your Google account credentials.</li>
+          <li style="color:var(--muted);font-size:.88rem;padding-left:1.1rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--teal);">→</span> You agree not to misuse the Application for unlawful purposes.</li>
+          <li style="color:var(--muted);font-size:.88rem;padding-left:1.1rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--teal);">→</span> You agree to use the Application only within the scope of permissions granted.</li>
+        </ul>
       </div>
-      <div style="height:1px;background:linear-gradient(90deg,var(--teal),transparent);margin-bottom:3rem;opacity:.4;"></div>
+    </div>
 
-      <!-- Section 1 -->
-      <div style="margin-bottom:2.5rem;">
-        <h2 style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:.9rem;display:flex;align-items:center;gap:.7rem;"><span style="color:var(--teal);font-size:1rem;">01</span> Acceptance of Terms</h2>
-        <p style="color:var(--muted);line-height:1.85;font-size:.97rem;">By using SynthAudit AI, you agree to these Terms of Service. If you do not agree, please discontinue use.</p>
+    <!-- Section 4 -->
+    <div style="margin-bottom:2rem;" class="anim">
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:.8rem;display:flex;align-items:center;gap:.65rem;"><span style="color:var(--teal);font-size:.95rem;font-weight:800;">04</span> Limitations</h2>
+      <div style="background:var(--navyc);border:1px solid var(--bdrd);border-radius:10px;padding:1.5rem;">
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:.55rem;">
+          <li style="color:var(--muted);font-size:.88rem;padding-left:1.1rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--teal);">→</span> The Application does not guarantee uninterrupted service.</li>
+          <li style="color:var(--muted);font-size:.88rem;padding-left:1.1rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--teal);">→</span> We are not liable for any loss of data, damages, or misuse of your Google account.</li>
+        </ul>
       </div>
+    </div>
 
-      <!-- Section 2 -->
-      <div style="margin-bottom:2.5rem;">
-        <h2 style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:.9rem;display:flex;align-items:center;gap:.7rem;"><span style="color:var(--teal);font-size:1rem;">02</span> Service Description</h2>
-        <div style="background:var(--navy-card);border:1px solid var(--bdr);border-radius:12px;padding:1.75rem;">
-          <ul style="list-style:none;display:flex;flex-direction:column;gap:.65rem;">
-            <li style="color:var(--muted);font-size:.93rem;padding-left:1.2rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--teal);">→</span> The Application provides secure file management in Google Drive and generative text features via Gemini.</li>
-            <li style="color:var(--muted);font-size:.93rem;padding-left:1.2rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--teal);">→</span> The Application is provided "as is" without warranties of any kind.</li>
-          </ul>
-        </div>
+    <!-- Section 5 -->
+    <div style="margin-bottom:2rem;" class="anim">
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:.8rem;display:flex;align-items:center;gap:.65rem;"><span style="color:var(--teal);font-size:.95rem;font-weight:800;">05</span> Intellectual Property</h2>
+      <div style="background:var(--navyc);border:1px solid var(--bdrd);border-radius:10px;padding:1.5rem;">
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:.55rem;">
+          <li style="color:var(--muted);font-size:.88rem;padding-left:1.1rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--teal);">→</span> All intellectual property rights in the Application remain with SynthQual.</li>
+          <li style="color:var(--muted);font-size:.88rem;padding-left:1.1rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--teal);">→</span> You may not copy, modify, or redistribute the Application without permission.</li>
+        </ul>
       </div>
+    </div>
 
-      <!-- Section 3 -->
-      <div style="margin-bottom:2.5rem;">
-        <h2 style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:.9rem;display:flex;align-items:center;gap:.7rem;"><span style="color:var(--teal);font-size:1rem;">03</span> User Responsibilities</h2>
-        <div style="background:var(--navy-card);border:1px solid var(--bdr);border-radius:12px;padding:1.75rem;">
-          <ul style="list-style:none;display:flex;flex-direction:column;gap:.65rem;">
-            <li style="color:var(--muted);font-size:.93rem;padding-left:1.2rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--teal);">→</span> You are responsible for maintaining the confidentiality of your Google account credentials.</li>
-            <li style="color:var(--muted);font-size:.93rem;padding-left:1.2rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--teal);">→</span> You agree not to misuse the Application for unlawful purposes.</li>
-            <li style="color:var(--muted);font-size:.93rem;padding-left:1.2rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--teal);">→</span> You agree to use the Application only within the scope of permissions granted.</li>
-          </ul>
-        </div>
-      </div>
+    <!-- Section 6 -->
+    <div style="margin-bottom:2rem;" class="anim">
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:.8rem;display:flex;align-items:center;gap:.65rem;"><span style="color:var(--teal);font-size:.95rem;font-weight:800;">06</span> Termination</h2>
+      <p style="color:var(--muted);line-height:1.85;font-size:.9rem;">We reserve the right to revoke access if you violate these Terms. You may stop using the Application at any time and revoke permissions via Google Account settings.</p>
+    </div>
 
-      <!-- Section 4 -->
-      <div style="margin-bottom:2.5rem;">
-        <h2 style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:.9rem;display:flex;align-items:center;gap:.7rem;"><span style="color:var(--teal);font-size:1rem;">04</span> Limitations</h2>
-        <div style="background:var(--navy-card);border:1px solid var(--bdr);border-radius:12px;padding:1.75rem;">
-          <ul style="list-style:none;display:flex;flex-direction:column;gap:.65rem;">
-            <li style="color:var(--muted);font-size:.93rem;padding-left:1.2rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--teal);">→</span> The Application does not guarantee uninterrupted service.</li>
-            <li style="color:var(--muted);font-size:.93rem;padding-left:1.2rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--teal);">→</span> We are not liable for any loss of data, damages, or misuse of your Google account.</li>
-          </ul>
-        </div>
-      </div>
+    <!-- Section 7 -->
+    <div style="background:linear-gradient(135deg,rgba(11,181,160,.1),rgba(11,181,160,.04));border:1px solid rgba(11,181,160,.25);border-radius:10px;padding:1.5rem;margin-bottom:2rem;" class="anim">
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:.8rem;display:flex;align-items:center;gap:.65rem;"><span style="color:var(--teal);font-size:.95rem;font-weight:800;">07</span> Contact</h2>
+      <p style="color:var(--muted);line-height:1.8;font-size:.88rem;margin-bottom:.45rem;">For support or inquiries, please reach out:</p>
+      <p style="font-size:.88rem;margin-bottom:.3rem;">📧 <a href="mailto:synthqualai@gmail.com" style="color:var(--teal-lt);text-decoration:none;">synthqualai@gmail.com</a></p>
+      <p style="font-size:.88rem;">🌐 <a href="https://synthqualai-boop.github.io/Synthqual-website/" target="_blank" style="color:var(--teal-lt);text-decoration:none;">synthqualai-boop.github.io/Synthqual-website/</a></p>
+    </div>
 
-      <!-- Section 5 -->
-      <div style="margin-bottom:2.5rem;">
-        <h2 style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:.9rem;display:flex;align-items:center;gap:.7rem;"><span style="color:var(--teal);font-size:1rem;">05</span> Intellectual Property</h2>
-        <div style="background:var(--navy-card);border:1px solid var(--bdr);border-radius:12px;padding:1.75rem;">
-          <ul style="list-style:none;display:flex;flex-direction:column;gap:.65rem;">
-            <li style="color:var(--muted);font-size:.93rem;padding-left:1.2rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--teal);">→</span> All intellectual property rights in the Application remain with SynthQual.</li>
-            <li style="color:var(--muted);font-size:.93rem;padding-left:1.2rem;position:relative;line-height:1.7;"><span style="position:absolute;left:0;color:var(--teal);">→</span> You may not copy, modify, or redistribute the Application without permission.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Section 6 -->
-      <div style="margin-bottom:2.5rem;">
-        <h2 style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:.9rem;display:flex;align-items:center;gap:.7rem;"><span style="color:var(--teal);font-size:1rem;">06</span> Termination</h2>
-        <p style="color:var(--muted);line-height:1.85;font-size:.97rem;">We reserve the right to revoke access if you violate these Terms. You may stop using the Application at any time and revoke permissions via Google Account settings.</p>
-      </div>
-
-      <!-- Section 7 -->
-      <div style="background:linear-gradient(135deg,rgba(13,157,138,.1) 0%,rgba(13,157,138,.04) 100%);border:1px solid rgba(13,157,138,.25);border-radius:12px;padding:1.75rem;">
-        <h2 style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:.9rem;display:flex;align-items:center;gap:.7rem;"><span style="color:var(--teal);font-size:1rem;">07</span> Contact</h2>
-        <p style="color:var(--muted);line-height:1.8;font-size:.93rem;margin-bottom:.5rem;">For support or inquiries, please reach out:</p>
-        <p style="font-size:.93rem;margin-bottom:.3rem;">📧 <a href="mailto:synthqualai@gmail.com" style="color:var(--teal-lt);text-decoration:none;">synthqualai@gmail.com</a></p>
-        <p style="font-size:.93rem;">🌐 <a href="https://synthqualai-boop.github.io/Synthqual-website/" target="_blank" style="color:var(--teal-lt);text-decoration:none;">synthqualai-boop.github.io/Synthqual-website/</a></p>
-      </div>
-
-      <!-- Switch to Privacy -->
-      <div style="margin-top:3rem;text-align:center;">
-        <p style="color:var(--muted);font-size:.88rem;margin-bottom:.75rem;">Also read our Privacy Policy</p>
-        <button onclick="switchLegal('privacy')" style="background:transparent;border:1px solid rgba(13,157,138,.35);color:var(--teal-lt);border-radius:6px;padding:.6rem 1.4rem;font-family:'DM Sans',sans-serif;font-size:.88rem;cursor:pointer;transition:background .2s;" onmouseover="this.style.background='rgba(13,157,174,.1)'" onmouseout="this.style.background='transparent'">View Privacy Policy →</button>
-      </div>
+    <!-- Scroll back to Privacy -->
+    <div style="padding:1.2rem 1.5rem;background:var(--navyc);border:1px solid var(--bdrd);border-radius:10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;" class="anim">
+      <span style="font-size:.85rem;color:var(--muted);">↑ Also read our Privacy Policy above</span>
+      <a href="#privacy" class="btn btn-g" style="font-size:.78rem;padding:.45rem 1.1rem;">View Privacy Policy ↑</a>
     </div>
 
   </div>
-</div>
+</section>
 
 <script>
-function showLegal(page) {
-  document.getElementById('legal-overlay').style.display = 'block';
-  document.getElementById('legal-privacy').style.display = page === 'privacy' ? 'block' : 'none';
-  document.getElementById('legal-terms').style.display   = page === 'terms'   ? 'block' : 'none';
-  window.scrollTo(0, 0);
-  document.body.style.overflow = 'hidden';
-  document.getElementById('legal-overlay').scrollTop = 0;
-}
-function hideLegal() {
-  document.getElementById('legal-overlay').style.display = 'none';
-  document.body.style.overflow = '';
-}
-function switchLegal(page) {
-  document.getElementById('legal-privacy').style.display = page === 'privacy' ? 'block' : 'none';
-  document.getElementById('legal-terms').style.display   = page === 'terms'   ? 'block' : 'none';
-  document.getElementById('legal-overlay').scrollTop = 0;
-}
-// Close overlay on Escape key
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') hideLegal();
-});
-</script>
-
 // KEY FIX: Elements start VISIBLE. JS only applies animation if IntersectionObserver is available.
 // This guarantees content is always seen, even if JS fails.
 if ('IntersectionObserver' in window) {
   const elems = document.querySelectorAll('.anim');
-  elems.forEach(el => el.classList.add('js-hidden'));
-
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.remove('js-hidden');
-        e.target.classList.add('js-visible');
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.04, rootMargin: '0px 0px -30px 0px' });
-
-  elems.forEach
